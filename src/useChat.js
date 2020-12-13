@@ -13,6 +13,9 @@ const useChat = (roomId, userId) => {
     // Creates a WebSocket connection
     socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
       query: { roomId, userId },
+      rememberUpgrade:true,
+      transports: ['websocket'],
+      rejectUnauthorized: false
     });
 
     // Listens for incoming messages
